@@ -22,7 +22,7 @@ jobs:
               with:
                   source: "."
                   target: "/home/botte/githubaction"
-                  args: '--exclude .git --exclude .github --exclude .editorconfig --exclude .gitignore --exclude README.md'
+                  args: '--x .git --x .github --x .editorconfig --x .gitignore --x README.md'
 
             - name: Executing remote command
               uses: appleboy/ssh-action@master
