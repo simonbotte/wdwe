@@ -54,7 +54,7 @@
 			</div>
 		</div>
 		<div class="nav__message">
-			<p>Selectionnez au moins deux marques</p>
+			<p>Selectionnes au moins deux marques</p>
 		</div>
 	</nav>
 </template>
