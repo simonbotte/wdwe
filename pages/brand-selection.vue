@@ -1,7 +1,11 @@
 <template>
 	<div>
 		<section class="brandSelection">
-			<h1 class="brandSelection__title">Fait ta sélection</h1>
+			<h2 class="brandSelection__title">Fait ta sélection</h2>
+			<div class="brandSelection__search">
+				<input v-on:input="search" type="text" placeholder="Rechercher..." />
+				<div v-on:click="resetSearch" class="brandSelection__closeSearch brandSelection__closeSearch--close">x</div>
+			</div>
 			<div class="brandSelection__brands">
 				<div
 					v-for="brand in brands"
@@ -64,6 +68,28 @@ export default {
 				}
 			}
 		},
+		search(e) {
+			let search = e.target.value;
+			let brands = document.querySelectorAll(".brand");
+			brands.forEach(brand => {
+				let brandName = brand.querySelector(".brand__name").innerText;
+				if (brandName.toLowerCase().includes(search.toLowerCase())) {
+					brand.style.display = "flex";
+				} else {
+					brand.style.display = "none";
+				}
+			});
+			if(search.length > 0) {
+				document.querySelector(".brandSelection__closeSearch").classList.remove("brandSelection__closeSearch--close");
+			} else {
+				document.querySelector(".brandSelection__closeSearch").classList.add("brandSelection__closeSearch--close");
+			}
+		},
+		resetSearch() {
+			document.querySelector(".brandSelection__search input").value = "";
+			document.querySelector(".brandSelection__closeSearch").classList.add("brandSelection__closeSearch--close");
+			this.search({target: {value: ""}});
+		}
 	},
 };
 </script>
@@ -128,6 +154,48 @@ section.brandSelection {
 		width: 100%;
 		height: 100%;
         max-height: 150px;
+	}
+}
+
+.brandSelection__search{
+	margin-bottom: 16px;
+	width: 100%;
+	position: relative;
+	input{
+		font-size: 14px;
+		width: 100%;
+		padding: 8px 16px;
+		border-radius: 100px;
+		border: 1px solid var(--blue);
+		&:focus{
+			outline: none;
+			border: 1px solid var(--red);
+		}
+	}
+	.brandSelection__closeSearch{
+		position: absolute;
+		top: 50%;
+		right: 16px;
+		transform: translateY(-50%);
+		cursor: pointer;
+		background-color: var(--red);
+		color: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 100px;
+		width: 24px;
+		height: 24px;
+		line-height: 16px;
+		padding-bottom: 3px;
+		transition: 200ms ease;
+		transform-origin: top;
+	}
+	.brandSelection__closeSearch--close{
+		opacity: 0;
+		pointer-events: none;
+		// transform: rotate(90deg);
+		right: -4px
 	}
 }
 </style>
