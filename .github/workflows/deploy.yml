@@ -20,9 +20,8 @@ jobs:
                   PORT: ${{ secrets.PORT }}
                   KEY: ${{ secrets.SSHKEY }}
               with:
-                  source: "."
+                  source: "assets,components,layouts,pages,static,store,nuxt.config.js,package-lock.json,package.json"
                   target: "/home/botte/githubaction"
-                  args: '--x .git --x .github --x .editorconfig --x .gitignore --x README.md'
 
             - name: Executing remote command
               uses: appleboy/ssh-action@master
