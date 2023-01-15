@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<section class="brandSelection">
-			<h2 class="brandSelection__title">Fait ta sélection</h2>
+			<h2 class="brandSelection__title">Faites votre sélection</h2>
 			<div class="brandSelection__search">
 				<input v-on:input="search" type="text" placeholder="Rechercher..." />
 				<div v-on:click="resetSearch" class="brandSelection__closeSearch brandSelection__closeSearch--close">x</div>
