@@ -30,8 +30,6 @@ jobs:
                   USERNAME: ${{ secrets.USERNAME }}
                   PORT: ${{ secrets.PORT }}
                   KEY: ${{ secrets.SSHKEY }}
-                  script: 
-                    export NVM_DIR=~/.nvm
-                    source ~/.nvm/nvm.sh                
+                  script:                
                     npm install
                     npm run build
