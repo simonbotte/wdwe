@@ -169,7 +169,7 @@ export default {
 	}
 	.brand {
 		width: 175px;
-		height: 150px;
+		min-height: 150px;
 		display: flex;
 		align-items: center;
 		img {
