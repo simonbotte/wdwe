@@ -169,6 +169,9 @@ export default {
 	}
 	.brand {
 		width: 175px;
+		height: 150px;
+		display: flex;
+		align-items: center;
 		img {
 			width: 100%;
 			object-fit: contain;
