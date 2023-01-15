@@ -58,7 +58,6 @@
 		</div>
 	</nav>
 </template>
-
 <script>
 export default {
 	name: "Navbar",
@@ -86,7 +85,6 @@ export default {
 						if (this.$route.name != "brand-selection") {
 							this.$router.push("/brand-selection");
 						}
-						
 					}
 				} else {
 					this.$router.push("/brand-selection");
